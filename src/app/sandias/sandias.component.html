@@ -1,0 +1,108 @@
+<h1>SANDIALANDIA UWU</h1>
+<hr>
+<h2>{{nombre_componente}}</h2>
+<p>{{listado_nombres}}</p>
+<h3>{{nombre}}</h3>
+<h4>{{dia}}, {{B}}</h4>
+<p>{{numero}}</p>
+<h4>{{arreglo1}}, <br/> {{arreglo2}} <br/>& {{varios}}</h4>
+
+<hr>
+
+<h3>Objetos de la Clase Uwu</h3>
+<p>{{sand.nombrepro}}</p>
+<p>{{sand.cantidaddexi}}</p>
+<p>{{sand.jugos}}</p>
+<p>{{sand.estado}}</p>
+
+<hr>
+
+<h2><strong>Albums en descuento UWU</strong></h2>
+<ul *ngIf="inventario[2].estado == true">
+    <li>{{inventario[2].nombrepro}}</li>
+    <li>{{inventario[2].cantidaddexi}}</li>
+    <li>{{inventario[2].jugos}}</li>
+</ul>
+<ul *ngIf="inventario[3].estado !== false">
+    <li>{{inventario[3].nombrepro}}</li>
+    <li>{{inventario[3].cantidaddexi}}</li>
+    <li>{{inventario[3].jugos}}</li>
+</ul>
+
+<button (click)="cambiarValor1(true)">Mostrar</button>
+<hr>
+<ul *ngIf="inventario[2].estado == true">
+    <li>{{inventario[2].nombrepro}}</li>
+    <li>{{inventario[2].cantidaddexi}}</li>
+    <li>{{inventario[2].jugos}}</li>
+</ul>
+<hr>
+<button (click)="cambiarValor2(false)">Ocultar</button>
+
+<hr>
+
+<h4>Listado de productos UwU</h4>
+<ul>
+    <li *ngFor="let sand of inventario">
+        <ul>
+            <li>{{sand.nombrepro}}</li>
+            <li>{{sand.cantidaddexi}}</li>
+            <li>{{sand.jugos}}</li>
+            <li *ngIf="sand.estado == true">Activo</li>
+        </ul>
+    </li>
+</ul>
+
+<hr>
+
+<table>
+    <thead>
+        <tr>
+            <th>Numero</th>
+            <th>Nombre del Producto</th>
+            <th>Cantidad</th>
+            <th>Empaque</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let sand of inventario; let i = index">
+            <td> {{ i+1 }} </td>
+            <td>{{sand.nombrepro}}</td>
+            <td>{{sand.cantidaddexi}}</td>
+            <td>{{sand.jugos}}</td>
+            <td *ngIf="sand.estado == true">Activo</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<h3>Color Switch</h3>
+<ul [ngSwitch]="color">
+    <li *ngSwitchCase="'purple'" [ngStyle]=" {
+        'background':color,
+        'color': 'white',
+        'padding': '20px'
+    }">
+    Este es Color Purpura</li>
+</ul>
+
+<hr>
+
+<h3>Selector de Colores</h3>
+<input type="text" [(ngModel)]="color_seleccionado">
+<pre>
+    <strong>Color Elegido: </strong>
+    {{ color_seleccionado }}
+</pre>
+<div [ngStyle]=" {
+    'background':color_seleccionado,
+    'width':'200px',
+    'height':'200px',
+    'float':'right',
+    'margin-right':'45%'
+    }">
+</div>
+<div style="clear: both;"></div>
